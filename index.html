@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://telegram.org/js/telegram-web-app.js?1">
     </script>
     <style>
@@ -17,8 +18,7 @@
 </body>
 <script>
     function getUserId(queryString) {
-        console.log(queryString)
-        if(!queryString) return ''
+        if(!queryString) return false;
         // Split the query string by the "&" symbol to get individual parameters
         var parameters = queryString.split('&');
       
@@ -42,10 +42,8 @@
 
     const query = JSON.stringify(Telegram.WebView.initParams.tgWebAppData)
     const userId = getUserId(Telegram.WebView.initParams.tgWebAppData);
-    const id = userId ? 'https://www.mahbet.com/?tel_id=' + userId : 'https://www.mahbet.com';
+    const id = userId ? 'https://www.mahbet.com/?tel_id=' + userId : 'https://www.mahbet.com/';
     const exampleImg  = document.getElementById("qwerty");
     exampleImg.setAttribute("src", id);
 </script>
-<!-- Google tag (gtag.js) -->
-
 </html>
