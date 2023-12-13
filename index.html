@@ -23,6 +23,13 @@
   <iframe id="qwerty"  style="border: 0; width: 100%; height: 100vh"  title="description"></iframe>
 </body>
 <script>
+  // Prompt user when navigating away with unsaved changes
+  window.addEventListener('beforeunload', function (e) {
+      const confirmationMessage = 'You have unsaved changes. Are you sure you want to leave?';
+      e.returnValue = confirmationMessage; // Standard for most browsers
+      return confirmationMessage; // For some older browsers
+  });
+  
     function getUserId(queryString) {
         if(!queryString) return false;
         // Split the query string by the "&" symbol to get individual parameters
