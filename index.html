@@ -23,11 +23,11 @@
   <iframe id="qwerty"  style="border: 0; width: 100%; height: 100vh"  title="description"></iframe>
 </body>
 <script>
+    Telegram.WebApp.isClosingConfirmationEnabled = true;
     function getUserId(queryString) {
         if(!queryString) return false;
         // Split the query string by the "&" symbol to get individual parameters
         var parameters = queryString.split('&');
-      
         // Iterate through the parameters to find the "user" parameter
         for (var i = 0; i < parameters.length; i++) {
           var parameter = parameters[i];
