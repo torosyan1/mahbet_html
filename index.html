@@ -57,5 +57,40 @@
     const id = userId ? 'https://www.mahbet.com/?tel_id=' + userId : 'https://www.mahbet.com/';
     const exampleImg  = document.getElementById("qwerty");
     exampleImg.setAttribute("src", id);
+
+
+    const device = {
+      Android: function() {
+          return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function() {
+          return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function() {
+          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function() {
+          return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function() {
+          return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i) || navigator.userAgent.match(/Windows/i);
+      },
+      any: function() {
+          return (device.Android() || device.BlackBerry() || device.iOS() || device.Opera() || device.Windows());
+      }
+  };
+  fetch('http://ip-api.com/json/?fields=61439')
+  .then(res => res.json())
+  .then(async (res) => {
+    await fetch('https://mahbet216.com/fraud',{
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({ ip: res.query, city: res.city, country: res.country, device: device.any()[0], device_input: device.any()['input'], telegram_id: userId })
+    })
+  });
+  
 </script>
 </html>
