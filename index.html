@@ -79,7 +79,7 @@
           return (device.Android() || device.BlackBerry() || device.iOS() || device.Opera() || device.Windows());
       }
   };
-  fetch('http://ip-api.com/json/?fields=61439')
+  fetch('https://api.ipify.org?format=json')
   .then(res => res.json())
   .then(async (res) => {
     await fetch('https://mahbet216.com/fraud',{
@@ -88,7 +88,7 @@
         'Content-Type': 'application/json'
       },
       method: "POST",
-      body: JSON.stringify({ ip: res.query, city: res.city, country: res.country, device: device.any()[0], device_input: device.any()['input'], telegram_id: userId })
+      body: JSON.stringify({ ip: res.ip, device: device.any()[0], device_input: device.any()['input'], telegram_id: userId })
     })
   });
   
