@@ -9,8 +9,7 @@
   <meta name="MobileOptimized" content="176"/>
   <meta name="HandheldFriendly" content="True"/>
   <meta name="robots" content="noindex,nofollow"/>
-    <script src="https://telegram.org/js/telegram-web-app.js?1">
-    </script>
+    <script async src="https://telegram.org/js/telegram-web-app.js?1"></script>
     <style>
         body {
             margin: 0;
@@ -26,9 +25,11 @@
   gtag('config', 'G-7Y55B8KHNN');
 </script>
 <body>
-  <iframe id="qwerty" onload="load(this)" style="border: 0; width: 100%; height: 100vh"  title="description"></iframe>
+  <iframe id="qwerty" style="border: 0; width: 100%; height: 100vh"  title="description"></iframe>
 </body>
 <script>
+  console.log('Telegram')
+
     Telegram.WebApp.isClosingConfirmationEnabled = true;
     function getUserId(queryString) {
         if(!queryString) return false;
@@ -51,13 +52,12 @@
           }
         }
     }
-
     const userId = getUserId(Telegram.WebView.initParams.tgWebAppData);
+
     const id = userId ? 'https://www.mahbet.com/?tel_id=' + userId : 'https://www.mahbet.com/';
     const exampleImg  = document.getElementById("qwerty");
     exampleImg.setAttribute("src", id);
 
-    function load(){
       const device = {
         Android: function() {
             return navigator.userAgent.match(/Android/i);
@@ -90,6 +90,5 @@
         body: JSON.stringify({ ip: res.ip, device: device.any()[0], device_input: device.any()['input'], telegram_id: userId })
       })
     }); 
-    }
 </script>
 </html>
