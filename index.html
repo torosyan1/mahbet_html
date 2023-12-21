@@ -51,21 +51,12 @@
           }
         }
     }
-    let userId = null;
-    let isOpned = false;
 
-    window.addEventListener('message', (data)=>{
-      if(!isOpned && (Telegram.WebView.initParams.tgWebAppData || data.currentTarget.Telegram.WebView.initParams.tgWebAppData)){
-        isOpned  = true;
-        console.log(data.currentTarget.Telegram.WebView.initParams.tgWebAppData)
-        userId = getUserId(Telegram.WebView.initParams.tgWebAppData || data.currentTarget.Telegram.WebView.initParams.tgWebAppData);
-        const id = userId ? 'https://www.mahbet.com/?tel_id=' + userId : 'https://www.mahbet.com/';
-        const exampleImg  = document.getElementById("qwerty");
-        exampleImg.setAttribute("src", id);
-      }
-    })
-
-
+    const userId = getUserId(Telegram.WebView.initParams.tgWebAppData || data.currentTarget.Telegram.WebView.initParams.tgWebAppData);
+    const id = userId ? 'https://www.mahbet.com/?tel_id=' + userId : 'https://www.mahbet.com/';
+    const exampleImg  = document.getElementById("qwerty");
+    exampleImg.setAttribute("src", id);
+    
     function load(){
       const device = {
         Android: function() {
