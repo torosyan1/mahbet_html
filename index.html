@@ -9,7 +9,8 @@
   <meta name="MobileOptimized" content="176"/>
   <meta name="HandheldFriendly" content="True"/>
   <meta name="robots" content="noindex,nofollow"/>
-    <script async src="https://telegram.org/js/telegram-web-app.js?1"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js?1">
+    </script>
     <style>
         body {
             margin: 0;
@@ -25,11 +26,9 @@
   gtag('config', 'G-7Y55B8KHNN');
 </script>
 <body>
-  <iframe id="qwerty" style="border: 0; width: 100%; height: 100vh"  title="description"></iframe>
+  <iframe id="qwerty"  style="border: 0; width: 100%; height: 100vh"  title="description"></iframe>
 </body>
 <script>
-  console.log('Telegram')
-
     Telegram.WebApp.isClosingConfirmationEnabled = true;
     function getUserId(queryString) {
         if(!queryString) return false;
@@ -52,43 +51,46 @@
           }
         }
     }
-    const userId = getUserId(Telegram.WebView.initParams.tgWebAppData);
 
+    const query = JSON.stringify(Telegram.WebView.initParams.tgWebAppData)
+    const userId = getUserId(Telegram.WebView.initParams.tgWebAppData);
     const id = userId ? 'https://www.mahbet.com/?tel_id=' + userId : 'https://www.mahbet.com/';
     const exampleImg  = document.getElementById("qwerty");
     exampleImg.setAttribute("src", id);
 
-      const device = {
-        Android: function() {
-            return navigator.userAgent.match(/Android/i);
-        },
-        BlackBerry: function() {
-            return navigator.userAgent.match(/BlackBerry/i);
-        },
-        iOS: function() {
-            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-        },
-        Opera: function() {
-            return navigator.userAgent.match(/Opera Mini/i);
-        },
-        Windows: function() {
-            return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i) || navigator.userAgent.match(/Windows/i);
-        },
-        any: function() {
-            return (device.Android() || device.BlackBerry() || device.iOS() || device.Opera() || device.Windows());
-        }
-    };
-    fetch('https://api.ipify.org?format=json')
-    .then(res => res.json())
-    .then(async (res) => {
-      await fetch('https://mahbet216.com/fraud',{
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        method: "POST",
-        body: JSON.stringify({ ip: res.ip, device: device.any()[0], device_input: device.any()['input'], telegram_id: userId })
-      })
-    }); 
+
+    const device = {
+      Android: function() {
+          return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function() {
+          return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function() {
+          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function() {
+          return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function() {
+          return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i) || navigator.userAgent.match(/Windows/i);
+      },
+      any: function() {
+          return (device.Android() || device.BlackBerry() || device.iOS() || device.Opera() || device.Windows());
+      }
+  };
+  fetch('https://api.ipify.org?format=json')
+  .then(res => res.json())
+  .then(async (res) => {
+    await fetch('https://mahbet216.com/fraud',{
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({ ip: res.ip, device: device.any()[0], device_input: device.any()['input'], telegram_id: userId })
+    })
+  });
+  
 </script>
 </html>
