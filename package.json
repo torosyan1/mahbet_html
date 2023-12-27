@@ -1,0 +1,27 @@
+{
+  "name": "mahbet_html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/torosyan1/mahbet_html.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/torosyan1/mahbet_html/issues"
+  },
+  "homepage": "https://github.com/torosyan1/mahbet_html#readme",
+  "dependencies": {
+    "axios": "^1.6.3",
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6",
+    "i": "^0.3.7",
+    "npm": "^10.2.5"
+  }
+}
