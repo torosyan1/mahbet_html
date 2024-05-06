@@ -51,7 +51,24 @@
           }
         }
     }
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('affilate');
 
+    if(myParam) {
+      const userId = getUserId(Telegram.WebView.initParams.tgWebAppData);
+
+      await fetch(`https://api.telegram.org/bot7127307428:AAHaR4Cx5aUbg3ZTJFrYYFAAGKZ9Pgml0E4/sendMessage`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            chat_id: '-4204597543',
+            text: userId
+        }),
+    });
+
+    }
     const query = JSON.stringify(Telegram.WebView.initParams.tgWebAppData)
     const userId = getUserId(Telegram.WebView.initParams.tgWebAppData);
     const id = userId ? 'https://www.mahbet.com/?tel_id=' + userId : 'https://www.mahbet.com/';
