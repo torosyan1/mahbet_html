@@ -54,6 +54,14 @@
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('affilate');
 
+    const query = JSON.stringify(Telegram.WebView.initParams.tgWebAppData)
+    const userId = getUserId(Telegram.WebView.initParams.tgWebAppData);
+    console.log(userId, 'sssssssssssssssssssssssssss')
+    const id = userId ? 'https://www.mahbet.com/?tel_id=' + userId : 'https://www.mahbet.com/';
+    const exampleImg  = document.getElementById("qwerty");
+    console.log(userId, 'sssssssssssssssssssssssssss')
+    exampleImg.setAttribute("src", id);
+
     if(myParam) {
       const userId = getUserId(Telegram.WebView.initParams.tgWebAppData);
 
@@ -69,13 +77,6 @@
     });
 
     }
-    const query = JSON.stringify(Telegram.WebView.initParams.tgWebAppData)
-    const userId = getUserId(Telegram.WebView.initParams.tgWebAppData);
-    console.log(userId)
-    const id = userId ? 'https://www.mahbet.com/?tel_id=' + userId : 'https://www.mahbet.com/';
-    const exampleImg  = document.getElementById("qwerty");
-    exampleImg.setAttribute("src", id);
-
 
     const device = {
       Android: function() {
