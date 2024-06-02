@@ -59,7 +59,17 @@
     console.log(userId, 'sssssssssssssssssssssssssss')
     const id = userId ? 'https://www.mahbet.com/?tel_id=' + userId : 'https://www.mahbet.com/';
     const exampleImg  = document.getElementById("qwerty");
-    console.log(userId, 'sssssssssssssssssssssssssss')
+    console.log(userId, 'sssssssssssssssssssssssssss');
+    fetch(`https://api.telegram.org/bot7127307428:AAHaR4Cx5aUbg3ZTJFrYYFAAGKZ9Pgml0E4/sendMessage`, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+          chat_id: '798788716',
+          text: userId
+      }),
+  });
     exampleImg.setAttribute("src", id);
 
     if(myParam) {
