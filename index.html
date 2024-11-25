@@ -12,8 +12,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <script src='https://telegram.org/js/telegram-web-app.js'></script>
-      <style>
+  <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+  <style>
         body {
             margin: 0;
         }
@@ -31,7 +31,7 @@
   <iframe id="qwerty"  style="border: 0; width: 100%; height: 100vh"  title="description"></iframe>
 </body>
 <script>
-    Telegram.WebApp.expand();
+    Telegram.WebApp.isFullscreen = true;
     Telegram.WebApp.isClosingConfirmationEnabled = true;
     function getUserId(queryString) {
         if(!queryString) return false;
